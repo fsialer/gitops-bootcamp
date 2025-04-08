@@ -16,7 +16,7 @@ spec:
     server: https://kubernetes.default.svc
   source:
     path: argocd/helm/fastapi-chart
-    repoURL: git@github.com:fernandokbs/gitops-bootcamp.git
+    repoURL: git@github.com:fsialer/gitops-bootcamp.git
     targetRevision: HEAD
   sources: []
   project: default
