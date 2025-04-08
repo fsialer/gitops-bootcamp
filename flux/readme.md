@@ -39,7 +39,7 @@ export GITHUB_USER=
 
 ```bash
 flux bootstrap github \
-  --owner=$GITHUB_USER \
+  --owner=fsialer \
   --repository=gitops-bootcamp \
   --branch=main \
   --path=./flux/templates \
