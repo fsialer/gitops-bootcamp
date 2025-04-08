@@ -1,0 +1,10 @@
+apiVersion: notification.toolkit.fluxcd.io/v1beta2
+kind: Provider
+metadata:
+  name: slack-provider
+  namespace: flux-system
+spec:
+  type: slack
+  channel: "#todo-gitopsd"
+  secretRef:
+    name: slack-webhook-secret

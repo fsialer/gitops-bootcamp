@@ -1,0 +1,4 @@
+🚀 FastAPI con Redis ha sido instalado exitosamente 🎉
+
+Puedes acceder al servicio en:
+curl -v http://localhost:8080

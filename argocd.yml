@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app2
+  annotations:
+    argocd.argoproj.io/sync-options: SkipPrune
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: todo-gitopsd
+    notifications.argoproj.io/subscribe.on-deleted.slack: todo-gitopsd
+    notifications.argoproj.io/subscribe.on-deployed.slack: todo-gitopsd
+    notifications.argoproj.io/subscribe.on-sync-failed.slack: todo-gitopsd
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.slack: todo-gitopsd
+    notifications.argoproj.io/subscribe.on-health-degraded.slack: todo-gitopsd
+spec:
+  destination:
+    namespace: argocd-app-2
+    server: https://kubernetes.default.svc
+  source:
+    path: argocd/helm/fastapi-chart
+    repoURL: git@github.com:fernandokbs/gitops-bootcamp.git
+    targetRevision: HEAD
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
